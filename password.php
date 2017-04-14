@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($_POST['pass1'] != $_POST['pass2']) {
             $errors[] = 'Your new password did not match the confirmed password.';
         } else {
-            $np = mysqli_real_escape_string($dbc, trim($_POST['pass']));
+            $np = mysqli_real_escape_string($dbc, trim($_POST['pass1']));
         }
     } else {
         $errors[] = 'You forgot to enter your new password';
@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
            $row = mysqli_fetch_array($r, MYSQLI_NUM);
 
            //Make the UPDATE query
-           $q = "UDPATE users SET pass=SHA1('$np') WHERE user_id = $row[0]";
+           $q = "UPDATE users SET pass=SHA1('$np') WHERE user_id = $row[0]";
           $r = @mysqli_query($dbc, $q);
 
           if (mysqli_affected_rows($dbc) == 1) { // If it ran OK
