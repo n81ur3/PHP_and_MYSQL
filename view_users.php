@@ -42,7 +42,7 @@ if ($num > 0) { //If it ran OK, display the records.
     while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
         echo '<tr>
             <td align="left"><a href="edit_user.php?id=' . $row['user_id'] . '">Edit</a></td>
-            <td align="left"><a href="delete_user.php?id=' . $row['user_id'] . '"</td></td>
+            <td align="left"><a href="delete_user.php?id=' . $row['user_id'] . '">Delete</a></td></td>
             <td align="left">' . $row['last_name'] . '</td>
             <td align="left">' . $row['first_name'] . '</td>
             <td align="left">' . $row['dr'] . '</td>
