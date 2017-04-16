@@ -49,7 +49,6 @@ if ($num > 0) { //If it ran OK, display the records.
         </tr>';
     }
 
-
     echo '</table>'; //Close the table.
 
     mysqli_free_result($r); //Free up the resources.
