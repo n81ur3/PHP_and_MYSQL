@@ -17,7 +17,7 @@ function create_window(image, width, height) {
 
     //Set the window properties
     var specs = "location=no, scrollbars=no, menubars=no, toolbars=no, resizable=yes," +
-        "left=0, top=0, widht=" + width + "height=" + height;
+        " left=50, top=0, width=" + width + ", height=" + height;
 
     //Set the URL
     var url = "show_image.php?image=" + image;
