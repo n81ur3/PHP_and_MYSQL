@@ -22,9 +22,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     list($check, $data) = check_login($dbc, $_POST['email'], $_POST['pass']);
 
     if ($check) {
-        //Set the cookies
-        setcookie('user_id', $data['user_id']);
-        setcookie('first_name', $data['first_name']);
+        //Set the session data
+        session_start();
+        $_SESSION['user_id'] = $data['user_id'];
+        $_SESSION['first_name'] = $data['first_name'];
 
         //Redirect
         redirect_user('loggedin.php');
