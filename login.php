@@ -27,6 +27,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['user_id'] = $data['user_id'];
         $_SESSION['first_name'] = $data['first_name'];
 
+        //Store the HTTP_USER_AGENT
+        $_SESSION['agent'] = md5($_SERVER['HTTP_USER_AGENT']);
+        print_r($_SESSION);
+
         //Redirect
         redirect_user('loggedin.php');
     } else {

@@ -10,7 +10,7 @@
 session_start();
 
 //If no cookie is present, redirect the user
-if (!isset($_SESSION['user_id'])) {
+if ((!isset($_SESSION['user_id'])) OR ($_SESSION['agent'] != md5($_SERVER['HTTP_USER_AGENT']))) {
     //Need the function
     require('includes/login_function.inc.php');
     redirect_user();
