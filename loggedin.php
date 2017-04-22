@@ -7,8 +7,10 @@
  * The user is redirected here from login.php
  */
 
+session_start();
+
 //If no cookie is present, redirect the user
-if (!isset($_COOKIE['user_id'])) {
+if (!isset($_SESSION['user_id'])) {
     //Need the function
     require('includes/login_function.inc.php');
     redirect_user();
@@ -20,7 +22,7 @@ include ('includes/header.html');
 
 //Print a customized message
 echo "<h1>Logged In</h1>
-<p>You are now logged in {$_COOKIE['first_name']}</p>;
+<p>You are now logged in {$_SESSION['first_name']}</p>;
 <p><a href=\"logout.php\">Logout</a></p>";
 
 include('includes/footer.html');
