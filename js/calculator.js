@@ -15,23 +15,39 @@ $(function() {
         //Validate the quantity
         if ($('#quantity').val() > 0) {
             quantity = $('#quantity').val();
+
+            //Clear an error, if one existed
+            $('#quantityP').removeClass('error');
+
+            //Hide the error message, if it was visible
+            $('#quantityError').hide()
         } else {
-            //Alert the user
-            alert("Please enter a valid quantity");
+            //Add an error class:
+            $('#quantityP').addClass('error');
+
+            //Show the error message
+            $('#quantityError').show();
         }
 
         //Validate the price
         if ($('#price').val() > 0) {
             price = $('#price').val();
+
+            $('#priceP').removeClass('error');
+            $('#priceError').hide();
         } else {
-            alert("Please enter a valid price");
+            $('#priceP').addClass('error');
+            $('#priceError').show();
         }
 
         //Validate the tax
         if ($('#tax').val() > 0) {
             tax = $('#tax').val();
+            $('#taxP').removeClass('error');
+            $('#taxError').hide();
         } else {
-            alert("Please enter a valid tax");
+            $('#taxP').addClass('error');
+            $('#taxError').show();
         }
 
         //If appropriate, perform the calculation
@@ -40,7 +56,7 @@ $(function() {
             total += total + (tax / 100);
 
             //Display the result
-            alert("The total is $" + total);
+            $('#result').html('The total is <b>$' + total + '</b>.');
         }
 
         //Return false to prevent an actual form submission
